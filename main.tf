@@ -3,21 +3,10 @@ locals {
 }
 
 # -----------------------------------------------------------------------------
-# Resources: Random string
-# -----------------------------------------------------------------------------
-resource "random_string" "postfix" {
-  length  = 6
-  number  = false
-  upper   = false
-  special = false
-  lower   = true
-}
-
-# -----------------------------------------------------------------------------
 # Resources: CodePipeline
 # -----------------------------------------------------------------------------
 resource "aws_s3_bucket" "artifact_store" {
-  bucket        = "${local.resource_name}-codepipeline-artifacts-${random_string.postfix.result}"
+  bucket        = "${local.resource_name}-codepipeline-artifacts"
   acl           = "private"
   force_destroy = true
 
