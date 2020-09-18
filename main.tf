@@ -131,7 +131,6 @@ resource "aws_codepipeline" "_" {
         StackName             = var.stack_name
         TemplatePath          = "build::packaged.yaml"
         ChangeSetName         = "${var.stack_name}-deploy"
-        TemplateConfiguration = "build::configuration.json"
       }
     }
 
